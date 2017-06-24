@@ -41,7 +41,7 @@ namespace RedditSharp.Things
         /// <summary>
         /// Get a <see cref="Listing{T}"/> of items in the Moderation Queue.
         /// </summary>
-        public Listing<VotableThing> GetModerationQueue(int max = -1) => Listing<VotableThing>.Create(WebAgent, ModQueueUrl, max, 100);
+        public Listing<ModeratableThing> GetModerationQueue(int max = -1) => Listing<ModeratableThing>.Create(WebAgent, ModQueueUrl, max, 100);
 
         /// <summary>
         /// Get a <see cref="Listing{T}"/> of unmoderated Posts.

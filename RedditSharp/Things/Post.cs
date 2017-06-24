@@ -15,7 +15,7 @@ namespace RedditSharp.Things
     /// <summary>
     /// A post.
     /// </summary>
-    public class Post : VotableThing
+    public class Post : ModeratableThing
     {
         private const string CommentUrl = "/api/comment";
         private const string GetCommentsUrl = "/comments/{0}.json";

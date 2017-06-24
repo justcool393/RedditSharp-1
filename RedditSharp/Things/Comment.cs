@@ -12,7 +12,7 @@ namespace RedditSharp.Things
     /// <summary>
     /// A comment.
     /// </summary>
-    public class Comment : VotableThing
+    public class Comment : ModeratableThing
     {
         private const string CommentUrl = "/api/comment";
         private const string EditUserTextUrl = "/api/editusertext";
@@ -120,7 +120,7 @@ namespace RedditSharp.Things
         public string BodyHtml { get; private set; }
 
         /// <summary>
-        /// Id of the parent <see cref="VotableThing"/>.
+        /// Id of the parent <see cref="ModeratableThing"/>.
         /// </summary>
         [JsonProperty("parent_id")]
         public string ParentId { get; private set; }
@@ -156,7 +156,7 @@ namespace RedditSharp.Things
         public IList<Comment> Comments { get; private set; }
 
         /// <summary>
-        /// Parent <see cref="VotableThing"/>
+        /// Parent <see cref="ModeratableThing"/>
         /// </summary>
         [JsonIgnore]
         public Thing Parent { get; internal set; }

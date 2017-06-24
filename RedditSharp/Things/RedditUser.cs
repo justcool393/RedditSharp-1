@@ -76,7 +76,7 @@ namespace RedditSharp.Things
         /// <summary>
         /// Return the users overview.
         /// </summary>
-        public Listing<VotableThing> GetOverview(int max = -1) => Listing<VotableThing>.Create(WebAgent, OverviewUrl, max, 100);
+        public Listing<ModeratableThing> GetOverview(int max = -1) => Listing<ModeratableThing>.Create(WebAgent, OverviewUrl, max, 100);
 
         /// <summary>
         /// Return a <see cref="Listing{T}"/> of posts liked by the logged in user.
@@ -130,11 +130,11 @@ namespace RedditSharp.Things
         /// <param name="limit">How many comments to fetch per request. Max is 100.</param>
         /// <param name="fromTime">What time frame of comments to show (hour, day, week, month, year, all).</param>
         /// <returns>The listing of comments requested.</returns>
-        public Listing<VotableThing> GetOverview(Sort sorting = Sort.New, int limit = 25, FromTime fromTime = FromTime.All)
+        public Listing<ModeratableThing> GetOverview(Sort sorting = Sort.New, int limit = 25, FromTime fromTime = FromTime.All)
         {
             CheckRange(limit, MAX_LIMIT);
             string overviewUrl = OverviewUrl + QueryString(sorting, limit, fromTime);
-            return new Listing<VotableThing>(WebAgent, overviewUrl);
+            return new Listing<ModeratableThing>(WebAgent, overviewUrl);
         }
 
         /// <summary>
@@ -175,11 +175,11 @@ namespace RedditSharp.Things
         /// <param name="limit">How many comments to fetch per request. Max is 100.</param>
         /// <param name="fromTime">What time frame of comments to show (hour, day, week, month, year, all).</param>
         /// <returns>The listing of posts and/or comments requested that the user saved.</returns>
-        public Listing<VotableThing> GetSaved(Sort sorting = Sort.New, int limit = 25, FromTime fromTime = FromTime.All)
+        public Listing<ModeratableThing> GetSaved(Sort sorting = Sort.New, int limit = 25, FromTime fromTime = FromTime.All)
         {
             CheckRange(limit, 100);
             string savedUrl = SavedUrl + QueryString(sorting, limit, fromTime);
-            return new Listing<VotableThing>(WebAgent, savedUrl);
+            return new Listing<ModeratableThing>(WebAgent, savedUrl);
         }
 
         /// <inheritdoc/>

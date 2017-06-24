@@ -344,19 +344,19 @@ namespace RedditSharp.Things
         /// List of gilded things
         /// </summary>
         /// <param name="max">Maximum number of records to return.  -1 for unlimited.</param>
-        public Listing<VotableThing> GetGilded(int max = -1)
+        public Listing<ModeratableThing> GetGilded(int max = -1)
         {
             if (Name == "/")
-                return Listing<VotableThing>.Create(WebAgent, "/.json", max, 100);
+                return Listing<ModeratableThing>.Create(WebAgent, "/.json", max, 100);
 
-            return Listing<VotableThing>.Create(WebAgent, SubredditGildedUrl, max, 100);
+            return Listing<ModeratableThing>.Create(WebAgent, SubredditGildedUrl, max, 100);
         }
 
         /// <summary>
         /// List of items in the mod queue
         /// </summary>
         /// <param name="max">Maximum number of records to return.  -1 for unlimited.</param>
-        public Listing<VotableThing> GetModQueue(int max = -1) => Listing<VotableThing>.Create(WebAgent, ModqueueUrl, max, 100);
+        public Listing<ModeratableThing> GetModQueue(int max = -1) => Listing<ModeratableThing>.Create(WebAgent, ModqueueUrl, max, 100);
 
         /// <summary>
         /// Links a moderator hasn't checked
@@ -370,7 +370,7 @@ namespace RedditSharp.Things
         /// </summary>
         /// <param name="max">Maximum number of records to return.  -1 for unlimited.</param>
         /// <returns></returns>
-        public Listing<VotableThing> GetRemoved(int max = -1) => Listing<VotableThing>.Create(WebAgent, SpamUrl, max, 100);
+        public Listing<ModeratableThing> GetRemoved(int max = -1) => Listing<ModeratableThing>.Create(WebAgent, SpamUrl, max, 100);
 
         /// <summary>
         /// Listing of items that have been edited. These posts are only available to a moderator with posts
@@ -378,7 +378,7 @@ namespace RedditSharp.Things
         /// </summary>
         /// <param name="max">Maximum number of records to return.  -1 for unlimited.</param>
         /// <returns></returns>
-        public Listing<VotableThing> GetEdited(int max = -1) => Listing<VotableThing>.Create(WebAgent, EditedUrl, max, 100);
+        public Listing<ModeratableThing> GetEdited(int max = -1) => Listing<ModeratableThing>.Create(WebAgent, EditedUrl, max, 100);
 
         /// <summary>
         /// Search using specific terms from a specified time to now
