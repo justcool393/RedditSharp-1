@@ -21,7 +21,7 @@ namespace RedditSharp.Things
         #pragma warning disable 1591
         public Comment(IWebAgent agent, JToken json, Thing sender) : base(agent, json) {
             var data = json["data"];
-            Parent = sender;
+            Link = (Post)sender;
 
             // Handle Reddit's API being horrible
             if (data["context"] != null)
@@ -120,8 +120,11 @@ namespace RedditSharp.Things
         public string BodyHtml { get; private set; }
 
         /// <summary>
-        /// Id of the parent <see cref="VotableThing"/>.
+        /// Fullname of the parent <see cref="VotableThing"/>.
         /// </summary>
+        /// <remarks>While the name of this property (even in the reddit API)
+        /// implies that is returning, an Id, it rather returns a fullname,
+        /// including the t1_ or t3_ prefix.</remarks>
         [JsonProperty("parent_id")]
         public string ParentId { get; private set; }
 
@@ -130,6 +133,12 @@ namespace RedditSharp.Things
         /// </summary>
         [JsonProperty("subreddit")]
         public string Subreddit { get; private set; }
+
+		/// <summary>
+		/// The parent submission.
+		/// </summary>
+        [JsonIgnore]
+        public Post Link { get; private set; }
 
         /// <summary>
         /// Link id.
