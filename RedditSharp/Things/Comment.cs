@@ -134,9 +134,9 @@ namespace RedditSharp.Things
         [JsonProperty("subreddit")]
         public string Subreddit { get; private set; }
 
-		/// <summary>
-		/// The parent submission.
-		/// </summary>
+        /// <summary>
+        /// The parent submission.
+        /// </summary>
         [JsonIgnore]
         public Post Link { get; private set; }
 
